@@ -1,7 +1,7 @@
-import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { counterInterface } from 'src/app/@model/model';
 
 @Component({
     selector: 'app-counter-display',
@@ -9,13 +9,10 @@ import { Subscription } from 'rxjs';
     styleUrls: ['./counter-display.component.css']
 })
 export class CounterDisplayComponent implements OnInit {
-    private counter: number = 0;
+    constructor(private counterState: Store<{ counter: counterInterface }>) { }
 
-    counterSubscription: Subscription;
-    constructor(private counterState: Store<{ counter: { counter: 0 } }>) { }
-    ngOnInit() { this.counterSubscription = this.counterState.select('counter').subscribe(data => this.counter = data.counter); }
-
-    ngOnDestroy() {
-        if (this.counterSubscription) this.counterSubscription.unsubscribe();
+    counter$: Observable<counterInterface>;
+    ngOnInit() {
+        this.counter$ = this.counterState.select('counter');
     }
 }
