@@ -21,13 +21,13 @@
 </nav>
 <br><br><br><br>
 <div *ngIf="show_notificaitons_dropdown" class="fixed-right w-25 shadow rounded bg-white">
-  <ul class="list-group" *ngIf="(all_live_notification$ | async).notifications.length > 0">
-    <p *ngFor="let notification of (all_live_notification$ | async).notifications"
+  <ul class="list-group" *ngIf="(all_live_notification$ | async).length > 0">
+    <p *ngFor="let notification of (all_live_notification$ | async)"
       class="list-group-item border-bottom">
       {{notification.message}}
     </p>
   </ul>
-  <div *ngIf="(all_live_notification$ | async).notifications.length == 0"
+  <div *ngIf="(all_live_notification$ | async).length == 0"
     class="p-3 my-3 d-flex flex-column align-items-center justify-content-center">
     <h5>No notification found!</h5>
   </div>

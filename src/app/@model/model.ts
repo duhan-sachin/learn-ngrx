@@ -1,3 +1,7 @@
+export interface NotificationState {
+    notifications: NotificationMessage[],
+}
+
 export interface NotificationMessage {
     _id?: string,
     message: string,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { NotificationMessage } from '../@model/model';
+import { NotificationMessage, NotificationState } from '../@model/model';
 import { add_new_notification } from '../@state/notification/notification.actions';
 
 @Component({
@@ -10,10 +10,12 @@ import { add_new_notification } from '../@state/notification/notification.action
 })
 export class HomeComponent implements OnInit {
 
-    constructor(private notificationState: Store<{ notifications: NotificationMessage }>) { }
+    constructor(private notificationState: Store<NotificationState>) { }
 
     ngOnInit() { }
+
     onSubmit(data) {
+        if(!data) return;
         const notification: NotificationMessage = {
             message: data,
             _id: data,
