@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { counterInterface } from 'src/app/@model/model';
+import { AppState } from 'src/app/@store/app.store';
+import { getCounter } from '../@state/counter.selector';
 
 @Component({
     selector: 'app-counter-display',
@@ -9,10 +10,10 @@ import { counterInterface } from 'src/app/@model/model';
     styleUrls: ['./counter-display.component.css']
 })
 export class CounterDisplayComponent implements OnInit {
-    constructor(private counterState: Store<{ counter: counterInterface }>) { }
+    constructor(private appStore: Store<AppState>) { }
 
-    counter$: Observable<counterInterface>;
+    counter$: Observable<number>;
     ngOnInit() {
-        this.counter$ = this.counterState.select('counter');
+        this.counter$ = this.appStore.select(getCounter);
     }
 }

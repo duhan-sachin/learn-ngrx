@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/@store/app.store';
 import { decrement, increment, reset, updateUserName } from '../@state/counter.actions';
 
 @Component({
@@ -8,15 +9,16 @@ import { decrement, increment, reset, updateUserName } from '../@state/counter.a
     styleUrls: ['./counter-button.component.css']
 })
 export class CounterButtonComponent implements OnInit {
-    constructor(private counterState: Store<{ counter: { counter: 0 } }>) { }
+    constructor(private appStore: Store<AppState>) { }
+
     ngOnInit() { }
 
-    onIncrement(): void { this.counterState.dispatch(increment()); }
-    onDecrement(): void { this.counterState.dispatch(decrement()); }
-    onReset(): void { this.counterState.dispatch(reset()); }
+    onIncrement(): void { this.appStore.dispatch(increment()); }
+    onDecrement(): void { this.appStore.dispatch(decrement()); }
+    onReset(): void { this.appStore.dispatch(reset()); }
 
     updateUserName(data: string): void {
         if (!data) return;
-        this.counterState.dispatch(updateUserName({ userName: data }));
+        this.appStore.dispatch(updateUserName({ userName: data }));
     }
 }
