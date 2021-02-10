@@ -9,7 +9,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { notificationReducer } from './@state/notification/notification.reducer';
 import { FormsModule } from '@angular/forms';
-import { counterReducer } from './counter/state/counter.reducer';
+import { counterReducer } from './counter/@state/counter.reducer';
 
 @NgModule({
     declarations: [

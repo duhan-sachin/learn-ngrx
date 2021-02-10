@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { decrement, increment, reset, updateUserName } from '../state/counter.actions';
-import { getUserName } from '../state/counter.selector';
+import { decrement, increment, reset, updateUserName } from '../@state/counter.actions';
 
 @Component({
     selector: 'app-counter-button',

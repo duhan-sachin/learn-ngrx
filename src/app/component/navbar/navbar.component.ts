@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { counterInterface, NotificationMessage, NotificationState } from 'src/app/@model/model';
 import { get_all_notifcations } from 'src/app/@state/notification/notification.selector';
-import { getUserName } from 'src/app/counter/state/counter.selector';
+import { getUserName } from 'src/app/counter/@state/counter.selector';
 
 @Component({
     selector: 'app-navbar',
