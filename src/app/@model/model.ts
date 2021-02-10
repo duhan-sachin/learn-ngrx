@@ -16,5 +16,6 @@ export interface NotificationMessage {
 }
 
 export interface counterInterface {
-    counter: number
+    counter: number,
+    userName : string
 }

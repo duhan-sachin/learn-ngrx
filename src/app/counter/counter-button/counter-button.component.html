@@ -3,3 +3,15 @@
   <button (click)="onDecrement()" class="ml-3 btn btn-warning">Decrement</button>
   <button (click)="onReset()" class="ml-3 btn btn-danger">Reset</button>
 </div>
+
+<div class="my-3 d-flex flex-column justify-content-center align-items-center">
+  <form class="col-sm-12 col-md-6">
+    <div class="form-group">
+      <label for="exampleInputEmail1">User Name</label>
+      <input #userName type="text" class="form-control" placeholder="Enter userName">
+    </div>
+    <button class="btn btn-primary btn-block" (click)="updateUserName(userName.value)">
+      Update User Name
+    </button>
+  </form>
+</div>

@@ -14,6 +14,7 @@
       </li>
     </ul>
     <span class="navbar-text">
+      <span class="mx-4">{{(userName$ | async)}}</span>
       <i class="fa fa-bell-o fa-lg pointer text-primary mr-4"
         (click)="show_notificaitons_dropdown = !show_notificaitons_dropdown"></i>
     </span>
@@ -22,8 +23,7 @@
 <br><br><br><br>
 <div *ngIf="show_notificaitons_dropdown" class="fixed-right w-25 shadow rounded bg-white">
   <ul class="list-group" *ngIf="(all_live_notification$ | async).length > 0">
-    <p *ngFor="let notification of (all_live_notification$ | async)"
-      class="list-group-item border-bottom">
+    <p *ngFor="let notification of (all_live_notification$ | async)" class="list-group-item border-bottom">
       {{notification.message}}
     </p>
   </ul>
